@@ -1,2 +1,2 @@
 # Haskell-REPL
-Haskell REPL that auto-loads when you safe a file. 
+Haskell REPL that auto-loads when you save a file. 
