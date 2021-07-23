@@ -1,0 +1,90 @@
+{
+	"name": "haskell-repl",
+	"displayName": "haskell-repl",
+	"publisher": "SeungheonOh",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/SeungheonOh/Haskell-REPL.git"
+	},
+	"description": "",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.58.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:haskell-repl.helloWorld",
+		"onCommand:haskell-repl.startRepl",
+		"onCommand:haskell-repl.restartRepl"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "haskell-repl.startRepl",
+				"title": "Start Haskell REPL"
+			},
+			{
+				"command": "haskell-repl.restartRepl",
+				"title": "Restart Haskell REPL"
+			},
+			{
+				"command": "haskell-repl.killRepl",
+				"title": "Kill Haskell REPL"
+			}
+		], 
+		"configuration": {
+			"title": "Haskell REPL",
+			"properties": {
+				"haskell-repl.replCommand": {
+					"type": "string",
+					"default": "cabal repl",
+					"description": "Command to run REPL"
+				},
+				"haskell-repl.replReload": {
+					"type": "string",
+					"default": ":! clear\r:reload",
+					"description": "Command to reload REPL"
+				},
+				"haskell-repl.replTerminalName": {
+					"type": "string",
+					"default": "cabal",
+					"description": "Name for REPL Terminal"
+				},
+				"haskell-repl.shellSetup": {
+					"type": "string",
+					"default": "nix-shell",
+					"description": "Command to setup environment"
+				},
+				"haskell-repl.fileType": {
+					"type": "string",
+					"default": "haskell",
+					"description": "File Type to trigger on"
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.58.0",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.2.2",
+		"@types/node": "14.x",
+		"eslint": "^7.27.0",
+		"@typescript-eslint/eslint-plugin": "^4.26.0",
+		"@typescript-eslint/parser": "^4.26.0",
+		"glob": "^7.1.7",
+		"mocha": "^8.4.0",
+		"typescript": "^4.3.2",
+		"vscode-test": "^1.5.2"
+	}
+}
