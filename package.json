@@ -17,22 +17,27 @@
 	"activationEvents": [
 		"onCommand:haskell-repl.helloWorld",
 		"onCommand:haskell-repl.startRepl",
-		"onCommand:haskell-repl.restartRepl"
+		"onCommand:haskell-repl.restartRepl",
+		"onCommand:haskell-repl.sendCommand"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
 				"command": "haskell-repl.startRepl",
-				"title": "Start Haskell REPL"
+				"title": "Haskell REPL: Start"
 			},
 			{
 				"command": "haskell-repl.restartRepl",
-				"title": "Restart Haskell REPL"
+				"title": "Haskell REPL: Restart"
 			},
 			{
 				"command": "haskell-repl.killRepl",
-				"title": "Kill Haskell REPL"
+				"title": "Haskell REPL: Kill"
+			},
+			{
+				"command": "haskell-repl.sendCommand",
+				"title": "Haskell REPL: Send Command"
 			}
 		], 
 		"configuration": {
